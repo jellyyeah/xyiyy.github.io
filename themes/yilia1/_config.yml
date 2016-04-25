@@ -1,0 +1,34 @@
+# Header
+menu:
+  主页: /
+  所有文章: /archives
+
+# SubNav
+subnav:
+  github: "https://github.com/xyiyy"
+  rss: /atom.xml
+  # facebook: "/"
+  # google: "/"
+  # twitter: "/"
+  # linkedin: "/"
+
+rss: /atom.xml
+
+# Content
+excerpt_link: more
+fancybox: true
+
+# Miscellaneous
+
+favicon: /favicon.png
+
+avatar: /icon/xyiyy.png
+share: true
+duoshuo: "litten-hexo"
+tagcloud: true
+
+#是否开启“关于我”。
+#不开启——
+#aboutme: false
+#开启——
+aboutme: 上海大学 xyiyy
