@@ -4,32 +4,60 @@ title: Mac下多版本python环境搭建
 ### pyenv
 [pyenv](https://github.com/yyuu/pyenv)是多版本的python管理器，可以让多个版本的python环境共存。如pypy，python2,python3等等
 
-Install it
+安装
 ```
 $ brew install pyenv
 ```
-Once you have it, you can install different versions of python and choose which one you can use.  
+或者
+```
+$ git clone https://github.com/yyuu/pyenv.git ~/.pyenv  
+$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile  
+$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile  
+$ echo 'eval "$(pyenv init -)"' >> ~/.bash_profile  
+$ source ~/.bash_profile
+```
 <!-- more -->
-Example:
+在安装完成之后，可以利用pyenv安装其它版本的python
 ```
-$ pyenv install 3.4.4
+$ pyenv install --list //查看可安装的python版本
+$ pyenv install 3.4.4 安装python3.4.4
 ```
-You can check the versions you have installed with:
+查看已经安装了的python版本
 ```
 $ pyenv versions
 ```
-And you can switch between python versions with the command
+将某一版本切换为全局
 ```
 $ pyenv global 3.4.4
 ```
-Also you can set a python version for the current directory with:
+对当前目录设置为某一版本
 ```
 $ pyenv local 3.4.4
 ```
+### 利用virtualenv创建虚拟python环境
+pyenv-virtualenv插件安装
+```
+$ git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv   
+$ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bash_profile
+$ source ~/.bash_profile
+```
+创建一个3.4.4的虚拟环境
+```
+$ pyenv virtualenv 3.4.4 env344
+```
+
+
+### 切换使用
+```
+$ pyenv activate env344
+
+
+$ pyenv deactivate
+```
+
 
 ### 参考网址
 1. [http://www.myexception.cn/perl-python/1905836.html](http://www.myexception.cn/perl-python/1905836.html)
 2. [http://www.open-open.com/lib/view/open1456751878453.html](http://www.open-open.com/lib/view/open1456751878453.html)
-3. [http://www.tuicool.com/articles/NBBbme](http://www.tuicool.com/articles/NBBbme)
-4. [http://www.it165.net/pro/html/201405/13603.html](http://www.it165.net/pro/html/201405/13603.html)
-5. [http://www.jianshu.com/p/fa2b7edc5d01](http://www.jianshu.com/p/fa2b7edc5d01)
+3. [http://www.it165.net/pro/html/201405/13603.html](http://www.it165.net/pro/html/201405/13603.html)
+4. [http://www.jianshu.com/p/fa2b7edc5d01](http://www.jianshu.com/p/fa2b7edc5d01)
