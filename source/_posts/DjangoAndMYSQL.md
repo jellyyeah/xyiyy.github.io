@@ -13,6 +13,7 @@ pip install pymysql
 在terminal下打开用python连接测试即可验证安装是否成功，网上有很多
 
 连接django也比较简单，在settings中的database部分如下配置：
+<!--more-->
 ```
 DATABASES = {
     'default': {
