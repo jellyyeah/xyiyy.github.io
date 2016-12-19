@@ -1,5 +1,7 @@
 ---
 title: python3下的django连接mysql
+date: 2016-06-13 14:00:00
+categories: 杂七杂八
 ---
 
 对于python2而言，使用MYSQLdb连接即可   

@@ -1,5 +1,7 @@
 ---
 title: Mac下多版本python环境搭建
+date: 2016-06-12 08:00:00
+categories: 杂七杂八
 ---
 ### pyenv
 [pyenv](https://github.com/yyuu/pyenv)是多版本的python管理器，可以让多个版本的python环境共存。如pypy，python2,python3等等

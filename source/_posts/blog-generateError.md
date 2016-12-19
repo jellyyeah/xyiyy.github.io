@@ -1,5 +1,7 @@
 ---
 title: hexo genarate的一种问题
+date: 2016-06-12 01:00:00
+categories: 杂七杂八
 ---
 
 generate的时候出现了一些奇怪的问题
