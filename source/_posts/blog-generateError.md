@@ -34,7 +34,7 @@ TypeError: Cannot read property 'compile' of undefined
 
 
 最终得知这个问题的一个原因时因为Hexo 3.2.0版本的问题，在出现这种问题的时候，一个比较简单可行的方法是将版本回退到3.1.1
-```
+```bash
 npm uninstall hexo
 npm install hexo@3.1.1 --save
 ```
