@@ -6,8 +6,9 @@ tags:
 categories: Codeforces
 ---
 
-[入口地址](http://codeforces.com/contest/747)
 
+[cf入口地址](http://codeforces.com/contest/747)
+<!--more-->
 ### A题  
 给你一个整数n，\\( 0 \leq n \leq 10^6 \\)，要你求出a，b，使得\\( a \leq b \\)，并且a，b的差值最小  
 解法： 暴力枚举
@@ -29,53 +30,13 @@ categories: Codeforces
 这里还有两个点需要注意一下，那就是如果这些段是以正数段开头的，那么第一个正数段是不会需要直接可以用一开始的A轮胎的，所以不需要去用B轮胎。同时，还有如果是以正数段作为最后一段的，那么如果将对最后一段使用B轮胎之后，不需要再换回来，所以在这段使用B轮胎，换轮胎的次数只减少了1.  
 所以，当最后一段是正数段的时候，只要枚举其是否用B轮胎替换。然后贪心就好了。  
 复杂度\\(O(nlog(n))\\)
-```c++
+```cpp
 //  main.cpp
 //  codeforces
 //
 //  Created by Yi Xu on 12/19/16.
 //  Copyright © 2016 Yi Xu. All rights reserved.
 //
-
-#include <stdio.h>
-#include <iostream>
-#include <sstream>
-#include <ios>
-#include <iomanip>
-#include <functional>
-#include <algorithm>
-#include <vector>
-#include <string>
-#include <list>
-#include <queue>
-#include <deque>
-#include <stack>
-#include <set>
-#include <map>
-#include <cstdio>
-#include <cstdlib>
-#include <cmath>
-#include <cstring>
-#include <climits>
-#include <cctype>
-using namespace std;
-#define XINF INT_MAX
-#define INF 0x3FFFFFFF
-#define mp(X,Y) make_pair(X,Y)
-#define pb(X) push_back(X)
-#define rep(X,N) for(int X=0;X<N;X++)
-#define rep2(X,L,R) for(int X=L;X<=R;X++)
-#define dep(X,R,L) for(int X=R;X>=L;X--)
-#define clr(A,X) memset(A,X,sizeof(A))
-#define IT iterator
-#define ALL(X) (X).begin(),(X).end()
-#define PQ std::priority_queue
-typedef long long ll;
-typedef  unsigned long long ull;
-typedef pair<int,int> PII;
-typedef vector<PII> VII;
-typedef vector<int> VI;
-
 int a[200010];
 priority_queue<int,vector<int>,greater<int> >q;
 priority_queue<int,vector<int>,greater<int> >q2;
@@ -138,46 +99,13 @@ int main() {
 ### E题
 模拟题，没啥好说的
 
-```C++
-#include <stdio.h>
-#include <iostream>
-#include <sstream>
-#include <ios>
-#include <iomanip>
-#include <functional>
-#include <algorithm>
-#include <vector>
-#include <string>
-#include <list>
-#include <queue>
-#include <deque>
-#include <stack>
-#include <set>
-#include <map>
-#include <cstdio>
-#include <cstdlib>
-#include <cmath>
-#include <cstring>
-#include <climits>
-#include <cctype>
-using namespace std;
-#define XINF INT_MAX
-#define INF 0x3FFFFFFF
-#define mp(X,Y) make_pair(X,Y)
-#define pb(X) push_back(X)
-#define rep(X,N) for(int X=0;X<N;X++)
-#define rep2(X,L,R) for(int X=L;X<=R;X++)
-#define dep(X,R,L) for(int X=R;X>=L;X--)
-#define clr(A,X) memset(A,X,sizeof(A))
-#define IT iterator
-#define ALL(X) (X).begin(),(X).end()
-#define PQ std::priority_queue
-typedef long long ll;
-typedef  unsigned long long ull;
-typedef pair<int,int> PII;
-typedef vector<PII> VII;
-typedef vector<int> VI;
-
+```cpp
+//  main.cpp
+//  codeforces
+//
+//  Created by Yi Xu on 12/19/16.
+//  Copyright © 2016 Yi Xu. All rights reserved.
+//
 string str;
 vector<char>G[500010];
 stack<PII> s;
@@ -218,7 +146,7 @@ int main() {
         }else{
             maxx = maxx * 10 + str[i] - '0';
         }
-        
+
     }
     cout << ans + 1 << endl;
     for(int i = 0 ; i <= ans; i ++){
@@ -227,7 +155,6 @@ int main() {
         }
         cout << endl;
     }
-    
     return 0;
 }
 ```
@@ -237,51 +164,17 @@ int main() {
 解法：先枚举位数,然后从1到F枚举最高位x（因为最高不能为0），在枚举了最高位之后，后面的位数在每个数只能限定的次数的情况下，能够构成多少数字，如果发现长度为len，最高位为x时，能构成的数加上最小位小于x或者长度小于len，小于这种的数位cnt个的时候，那说明最高位你已经找对了。  
 然后对于剩下的低位，只要从0到F枚举，然后重复之前的方法即可。  
 复杂度为\\(O(16^4 \cdot t^3) \\)，但由于 \\(k \leq 2 \cdot  10^9\\)，所以并不会达到这么大的范围
-```C++
-#include <stdio.h>
-#include <iostream>
-#include <sstream>
-#include <ios>
-#include <iomanip>
-#include <functional>
-#include <algorithm>
-#include <vector>
-#include <string>
-#include <list>
-#include <queue>
-#include <deque>
-#include <stack>
-#include <set>
-#include <map>
-#include <cstdio>
-#include <cstdlib>
-#include <cmath>
-#include <cstring>
-#include <climits>
-#include <cctype>
-using namespace std;
-#define XINF INT_MAX
-#define INF 0x3FFFFFFF
-#define mp(X,Y) make_pair(X,Y)
-#define pb(X) push_back(X)
-#define rep(X,N) for(int X=0;X<N;X++)
-#define rep2(X,L,R) for(int X=L;X<=R;X++)
-#define dep(X,R,L) for(int X=R;X>=L;X--)
-#define clr(A,X) memset(A,X,sizeof(A))
-#define IT iterator
-#define ALL(X) (X).begin(),(X).end()
-#define PQ std::priority_queue
-typedef long long ll;
-typedef  unsigned long long ull;
-typedef pair<int,int> PII;
-typedef vector<PII> VII;
-typedef vector<int> VI;
-
+```cpp
+//  main.cpp
+//  codeforces
+//
+//  Created by Yi Xu on 12/19/16.
+//  Copyright © 2016 Yi Xu. All rights reserved.
+//
 int can[110];
 ll C[170][11];
 vector<ll> dp(170);
 const ll maxx = 2e9 + 7;
-
 ll DP(int n){
     for(int i = 0; i <= n; i++)dp[i] = 0;
     dp[0] = 1;
@@ -295,12 +188,10 @@ ll DP(int n){
     }
     return dp[n];
 }
-
 void output(int p){
     if(p < 10)cout << p;
     else cout << char(p - 10 + 'a');
 }
-
 void dfs(int n,int p,ll k){
     output(p);
     if(!n){
@@ -319,7 +210,6 @@ void dfs(int n,int p,ll k){
         can[i]++;
     }
 }
-
 int main() {
     ios::sync_with_stdio(0);
     ll k;
@@ -331,7 +221,6 @@ int main() {
             C[i][j] = min(C[i][j],maxx);
         }
     }
-    
     cin >> k >> t;
     for(int i = 0 ; i < 16 ; i++){
         can[i] = t;
@@ -348,11 +237,6 @@ int main() {
             can[i]++;
         }
     }
-    
-    
     return 0;
 }
 ```
-
-
-

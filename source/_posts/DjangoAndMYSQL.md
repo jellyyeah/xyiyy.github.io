@@ -8,7 +8,7 @@ categories: 杂七杂八
 而对于python3，则需要另外的操作，我利用了pymysql来连接，用法非常简单。
 
 #### 安装
-```
+```bash
 pip install pymysql
 ```
 #### 测试
@@ -29,12 +29,12 @@ DATABASES = {
 ```
 这里，我们使用了名为test的数据库，需要现在mysql中创建好。   
 除此之外在__init__中添加如下：
-```
+```python
 import pymysql
 pymysql.install_as_MySQLdb()
 ```
 然后在manage.py中输入：
-```
+```python
 migrate
 ```
 最后在mysql中查看，即可发现django中的数据表已经在mysql中生成了。

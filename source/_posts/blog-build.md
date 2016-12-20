@@ -10,8 +10,7 @@ categories: 杂七杂八
 git的环境安装跳过
 ```
 安装Node.js
-brew install node
-
+brew install node  
 验证安装成功:
 node -v
 npm -v
