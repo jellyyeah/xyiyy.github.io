@@ -1,5 +1,5 @@
 ---
-title: CodeforcesR388
+title: Codeforces Round 388 (Div. 2)
 date: 2016-12-21 13:21:56
 tags:
 	- Fenwick tree
