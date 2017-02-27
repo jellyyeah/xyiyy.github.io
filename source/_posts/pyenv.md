@@ -1,8 +1,14 @@
 ---
 title: Mac下多版本python环境搭建
 date: 2016-06-12 08:00:00
-categories: 杂七杂八
+categories: 杂七杂八 python
 ---
+
+### Anaconda
+最近发现Anaconda很好用。
+这里有篇关于如何使用的[文章](http://www.jianshu.com/p/2f3be7781451#)
+
+
 ### pyenv
 [pyenv](https://github.com/yyuu/pyenv)是多版本的python管理器，可以让多个版本的python环境共存。如pypy，python2,python3等等
 
@@ -54,7 +60,6 @@ $ pyenv virtualenv 3.4.4 env344
 $ pyenv activate env344  
 $ pyenv deactivate
 ```
-
 
 ### 参考网址
 1. [http://www.myexception.cn/perl-python/1905836.html](http://www.myexception.cn/perl-python/1905836.html)

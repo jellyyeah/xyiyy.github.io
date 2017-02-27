@@ -1,5 +1,5 @@
 ---
-title: Simplified_Chess_Engine_II [HackerRank Week of Code 27]
+title: Simplified Chess Engine II [HackerRank Week of Code 27 Hard]
 date: 2016-12-28 12:55:47
 tags: 搜索
 categories: HackerRank
