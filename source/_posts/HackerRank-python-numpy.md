@@ -2,7 +2,9 @@
 title: HackerRank中python的numpy部分的题目
 date: 2016-12-28 17:05:43
 tags: numpy
-categories: HackerRank python
+categories:
+- HackerRank
+- python
 
 ---
 

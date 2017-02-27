@@ -1,8 +1,7 @@
 ---
 title: Codeforces Round 387 (Div. 2)
 date: 2016-12-19 18:44:36
-tags:
-- dp
+tags: dp
 categories: Codeforces
 ---
 
