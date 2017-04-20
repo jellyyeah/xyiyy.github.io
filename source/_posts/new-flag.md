@@ -1,9 +1,7 @@
 ---
 title: 立个flag
 date: 2017-04-20 19:30:05
-tags:
-categories:
-杂七杂八
+categories: 杂七杂八
 ---
 
 最近几天在打游戏，打了两天文明和一天炉石。。。
