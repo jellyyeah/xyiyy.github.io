@@ -24,11 +24,9 @@ npm install hexo -g
 1. 创建仓库  xyiyy.github.io
 2. 创建两个分支 master 和 hexo
 ```bash
-本地创建一个分支： git branch Branch1
-切换到分支Branch1: git checkout Branch1
-将新分支发布到github上: git push origin Branch1
-在本地删除一个分支: git branck -d Branch1
-在github远程端删除一个分支: git push origin :Branch1
+本地创建一个分支： git branch hexo
+切换到分支hexo: git checkout hexo
+将新分支发布到github上: git push origin hexo
 ```
 3. 设置hexo为默认分支(通过此分支来保存源文件)
 4. 在本地文件夹下依次执行（hexo分支下）
