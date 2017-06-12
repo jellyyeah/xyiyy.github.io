@@ -3,7 +3,6 @@ title: Mac下多版本python环境搭建
 date: 2016-06-12 08:00:00
 categories:
 - 杂七杂八
-- python
 ---
 
 ### Anaconda

@@ -17,7 +17,7 @@ npm -v
 ```
 <!--more-->
 ```bash
-安装Hexo:
+安装Hexo:（现在hexo3还要另外装server）
 npm install hexo -g
 ```
 ### 搭建
@@ -49,9 +49,9 @@ hexo generate -d
 ```
 
 ### 日常更新
-只需要执行搭建中的第6步和第7步
+只需要执行搭建中的最后两步
 
 ### 机器转移
 + 首先要配置好环境
 + 将项目从github上clone下来
-+ 执行第6步，第7步
++ 执行最后两步
