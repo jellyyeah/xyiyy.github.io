@@ -4,8 +4,8 @@
 
 # Site
 title: xyiyy's blog
-subtitle: ACM退役狗，现改行机器学习
-description:
+subtitle:
+description: ACM退役狗，现改行机器学习
 author: xyiyy
 language: zh-Hans
 timezone:
@@ -65,7 +65,14 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yelee
+theme: next
+
+# plugin in next
+algolia:
+  applicationID: 'YEDU95MLOQ'
+  apiKey: '402e13f2ae875233eb8cfc306f81d2ac'
+  indexName: 'githubblog'
+  chunkSize: 5000
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
