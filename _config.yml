@@ -65,7 +65,7 @@ avatar: /icon/favicon.png
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-# theme: landscape-plus
+theme: next
 
 # plugin in next
 algolia:
