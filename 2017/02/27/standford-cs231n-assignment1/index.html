@@ -1,0 +1,1076 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="cs231n," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/icon/favicon.png?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="作业一前面的课程视频和notes早就看完了，这次抽空把assignment1做了，感觉作用挺大的。 完整代码见此">
+<meta name="keywords" content="cs231n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="standford-cs231n-assignment1">
+<meta property="og:url" content="xyiyy.github.io/2017/02/27/standford-cs231n-assignment1/index.html">
+<meta property="og:site_name" content="xyiyy&#39;s blog">
+<meta property="og:description" content="作业一前面的课程视频和notes早就看完了，这次抽空把assignment1做了，感觉作用挺大的。 完整代码见此">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-14T05:18:44.925Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="standford-cs231n-assignment1">
+<meta name="twitter:description" content="作业一前面的课程视频和notes早就看完了，这次抽空把assignment1做了，感觉作用挺大的。 完整代码见此">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'YEDU95MLOQ',
+      apiKey: '402e13f2ae875233eb8cfc306f81d2ac',
+      indexName: 'githubblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="xyiyy.github.io/2017/02/27/standford-cs231n-assignment1/"/>
+
+
+
+
+
+  <title>standford-cs231n-assignment1 | xyiyy's blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?89184e62b3b6be8fcdf9b6a99b330819";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xyiyy's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="xyiyy.github.io/2017/02/27/standford-cs231n-assignment1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xyiyy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/icon/favicon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xyiyy's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">standford-cs231n-assignment1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-27T16:54:08+08:00">
+                2017-02-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/machine-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">machine learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/27/standford-cs231n-assignment1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/02/27/standford-cs231n-assignment1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/02/27/standford-cs231n-assignment1/" class="leancloud_visitors" data-flag-title="standford-cs231n-assignment1">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>作业一前面的课程视频和notes早就看完了，这次抽空把assignment1做了，感觉作用挺大的。</p>
+<p>完整代码<a href="https://github.com/xyiyy/cs231n_assignment/tree/master/assignment1" target="_blank" rel="external">见此</a></p>
+<a id="more"></a>
+<h2 id="KNN"><a href="#KNN" class="headerlink" title="KNN"></a>KNN</h2><blockquote>
+<p><em>Complete and hand in this completed worksheet (including its outputs and any supporting code outside of the worksheet) with your assignment submission. For more details see the <a href="http://vision.stanford.edu/teaching/cs231n/assignments.html" target="_blank" rel="external">assignments page</a> on the course website.</em></p>
+<p>The kNN classifier consists of two stages:</p>
+<ul>
+<li>During training, the classifier takes the training data and simply remembers it</li>
+<li>During testing, kNN classifies every test image by comparing to all training images and transfering the labels of the k most similar training examples</li>
+<li>The value of k is cross-validated</li>
+</ul>
+<p>In this exercise you will implement these steps and understand the basic Image Classification pipeline, cross-validation, and gain proficiency in writing efficient, vectorized code.</p>
+</blockquote>
+<p>首先是knn的部分，这里用knn其实就相当于拿到一张新的待预测的图片，然后去和训练集中的所有的已有的图片去进行比较，然后差异最小的k张图片中，频次出现最高的label作为本次预测的label。</p>
+<p>这部分的代码也比较简单，对于计算差值的部分，就是分别写一个两重，一重循环，以及不用循环的计算loss的函数，然后另外再补充一个predict的函数。</p>
+<p>其中，在不用循环的那个loss函数，还是有些trick的，第一次接触到，考虑到那个式子每行每列的平方项提出，就会发现其基本的部分就是一个乘法而已<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#########################################################################</span></div><div class="line"><span class="comment"># <span class="doctag">TODO:</span>                                                                 #</span></div><div class="line"><span class="comment"># Compute the l2 distance between all test points and all training      #</span></div><div class="line"><span class="comment"># points without using any explicit loops, and store the result in      #</span></div><div class="line"><span class="comment"># dists.                                                                #</span></div><div class="line"><span class="comment">#                                                                       #</span></div><div class="line"><span class="comment"># You should implement this function using only basic array operations; #</span></div><div class="line"><span class="comment"># in particular you should not use functions from scipy.                #</span></div><div class="line"><span class="comment">#                                                                       #</span></div><div class="line"><span class="comment"># HINT: Try to formulate the l2 distance using matrix multiplication    #</span></div><div class="line"><span class="comment">#       and two broadcast sums.                                         #</span></div><div class="line"><span class="comment">#########################################################################</span></div><div class="line">dists = <span class="number">-2</span> * np.dot(X,self.X_train.T)</div><div class="line">dists = dists + np.sum(X**<span class="number">2</span>,axis=<span class="number">1</span>,keepdims=<span class="keyword">True</span>)</div><div class="line">dists = dists + np.sum(self.X_train**<span class="number">2</span>,axis = <span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="comment">#########################################################################</span></div><div class="line"><span class="comment">#                         END OF YOUR CODE                              #</span></div><div class="line"><span class="comment">#########################################################################</span></div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h2><blockquote>
+<p><em>Complete and hand in this completed worksheet (including its outputs and any supporting code outside of the worksheet) with your assignment submission. For more details see the <a href="http://vision.stanford.edu/teaching/cs231n/assignments.html" target="_blank" rel="external">assignments page</a> on the course website.</em></p>
+<p>In this exercise you will:</p>
+<ul>
+<li>implement a fully-vectorized <strong>loss function</strong> for the SVM</li>
+<li>implement the fully-vectorized expression for its <strong>analytic gradient</strong></li>
+<li><strong>check your implementation</strong> using numerical gradient</li>
+<li>use a validation set to <strong>tune the learning rate and regularization</strong> strength</li>
+<li><strong>optimize</strong> the loss function with <strong>SGD</strong></li>
+<li><strong>visualize</strong> the final learned weights</li>
+</ul>
+</blockquote>
+<p>这个部分主要是要对svm的loss函数进行一个求导的步骤，其余部分都很简单。</p>
+<p>首先，这里svm的loss函数的定义如下：<br>$$L=\underbrace{\frac{1}{N} \sum_{i}^{N}L_{i}}_{data\ loss} + \underbrace{\frac{\lambda}{2} \sum_{k} \sum_{l}w_{kl}^2}_{regularization\ loss}$$<br>$$ L_{i} = \sum_{j \neq y_{i}} max\left(0, w_{j}^{T}x_{i} - w_{y_{i}}^{T}x_{i}+\Delta \right) $$<br>实际中我们一般将X展成了行向量的形式，所以，其实在实际的式子中<br>$$L_{i} = \sum_{j \neq y_{i}} max   \left(0,\sum_{k}{x_{ik}w_{kj}}-\sum_{k}{x_{ik}w_{ky_{i}}+\Delta}\right)$$<br>整体分析一下，对这个式子求导还是非常简单的，首先对于正则化的部分，就不提了，二次方直接求就好。对于data loss部分，对于小于0的，那部分对应的导数是0，其次，剩下部分的导数，每次都是作用在对应的整列上，为导数是\(x_{ik}\)。然后最后把data loss和regularization loss两部分的导数求个和即可。最终得到如下的代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#############################################################################</span></div><div class="line"><span class="comment"># <span class="doctag">TODO:</span>                                                                     #</span></div><div class="line"><span class="comment"># Implement a vectorized version of the structured SVM loss, storing the    #</span></div><div class="line"><span class="comment"># result in loss.                                                           #</span></div><div class="line"><span class="comment">#############################################################################</span></div><div class="line">num_train = X.shape[<span class="number">0</span>]</div><div class="line">scores = X.dot(W)</div><div class="line">margin = np.maximum(<span class="number">0</span>,scores - scores[np.array(range(num_train)),y].reshape(num_train,<span class="number">1</span>) + <span class="number">1</span>)</div><div class="line">margin[np.array(range(num_train)),y] = <span class="number">0</span></div><div class="line">loss = np.sum(margin) / num_train</div><div class="line">loss += <span class="number">0.5</span> * reg * np.sum(W ** <span class="number">2</span>)</div><div class="line"><span class="comment">#############################################################################</span></div><div class="line"><span class="comment">#                             END OF YOUR CODE                              #</span></div><div class="line"><span class="comment">#############################################################################</span></div><div class="line"><span class="comment">#############################################################################</span></div><div class="line"><span class="comment"># <span class="doctag">TODO:</span>                                                                     #</span></div><div class="line"><span class="comment"># Implement a vectorized version of the gradient for the structured SVM     #</span></div><div class="line"><span class="comment"># loss, storing the result in dW.                                           #</span></div><div class="line"><span class="comment">#                                                                           #</span></div><div class="line"><span class="comment"># Hint: Instead of computing the gradient from scratch, it may be easier    #</span></div><div class="line"><span class="comment"># to reuse some of the intermediate values that you used to compute the     #</span></div><div class="line"><span class="comment"># loss.                                                                     #</span></div><div class="line"><span class="comment">#############################################################################</span></div><div class="line">margin[margin &gt; <span class="number">0</span>] = <span class="number">1.0</span></div><div class="line">sum_row = np.sum(margin,axis=<span class="number">1</span>)</div><div class="line">margin[np.array(range(num_train)),y] -= sum_row</div><div class="line">dW += np.dot(X.T,margin) / num_train + reg * W</div><div class="line"><span class="comment">#############################################################################</span></div><div class="line"><span class="comment">#                             END OF YOUR CODE                              #</span></div><div class="line"><span class="comment">#############################################################################</span></div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="Softmax"><a href="#Softmax" class="headerlink" title="Softmax"></a>Softmax</h2><blockquote>
+<p><em>Complete and hand in this completed worksheet (including its outputs and any supporting code outside of the worksheet) with your assignment submission. For more details see the <a href="http://vision.stanford.edu/teaching/cs231n/assignments.html" target="_blank" rel="external">assignments page</a> on the course website.</em></p>
+<p>This exercise is analogous to the SVM exercise. You will:</p>
+<ul>
+<li>implement a fully-vectorized <strong>loss function</strong> for the Softmax classifier</li>
+<li>implement the fully-vectorized expression for its <strong>analytic gradient</strong></li>
+<li><strong>check your implementation</strong> with numerical gradient</li>
+<li>use a validation set to <strong>tune the learning rate and regularization</strong> strength</li>
+<li><strong>optimize</strong> the loss function with <strong>SGD</strong></li>
+<li><strong>visualize</strong> the final learned weights</li>
+</ul>
+</blockquote>
+<p>难的主要还是在向量化，求导的地方。其loss function如下：<br>$$L=\frac{1}{N}\sum_{i}^{N}{L_{i}}+\frac{\lambda}{2}\sum_{j}\sum_{k}w_{jk}$$<br>$$L_{i}<br>＝ln\frac{e^{S_{iy_{i}}}}{\sum_{j}{e^{S_{ij}}}}\ \<br>=-S_{iy_{i}}+ln\sum_{j}{e^{S_{ij}}}$$<br>$$S_{ij}=\sum_{k}{x_{ik}w_{kj}}$$<br>这里求导的话，regularization loss部分就不讲了。</p>
+<p>$$\frac{\partial L}{\partial S_{ij}}=<br>\begin{cases}<br>\frac{1}{N}\frac{e^{S_{ij}}}{\sum_{j}{e^{S_{ij}}}}, &amp; \text{if} \ j \neq y_{i} \\<br>\frac{1}{N}\left(\frac{e^{S_{ij}}}{\sum_{j}{e^{S_{ij}}}} - 1\right), &amp; \text{if} \ j = y_{i}<br>\end{cases}$$<br>这个式子里的减1的判断，实现向量化还是很容易的。然后是剩下的部分<br>$$\begin{align}<br>\frac{\partial S}{\partial W}<br>&amp; = \frac{\partial tr(XW)}{\partial W} \\<br>&amp; = \frac{\partial tr(WX)}{\partial W} \\<br>&amp; = X^{T}<br>\end{align}<br>$$<br>从而，可以得到，对于data loss部分，其导数为<br>$$<br>\frac{\partial L}{\partial W}<br>= \frac{\partial S}{\partial W}\frac{\partial L}{\partial S}<br>$$<br>Softmax_loss_vectorized部分的代码如下所示<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#############################################################################</span></div><div class="line"><span class="comment"># <span class="doctag">TODO:</span> Compute the softmax loss and its gradient using no explicit loops.  #</span></div><div class="line"><span class="comment"># Store the loss in loss and the gradient in dW. If you are not careful     #</span></div><div class="line"><span class="comment"># here, it is easy to run into numeric instability. Don't forget the        #</span></div><div class="line"><span class="comment"># regularization!                                                           #</span></div><div class="line"><span class="comment">#############################################################################</span></div><div class="line">scores = X.dot(W)</div><div class="line">num_train = X.shape[<span class="number">0</span>]</div><div class="line">num_classes = W.shape[<span class="number">1</span>]</div><div class="line">scores = scores - np.max(scores,axis=<span class="number">1</span>,keepdims=<span class="keyword">True</span>)</div><div class="line">row_sum = np.sum(np.exp(scores),axis=<span class="number">1</span>,keepdims=<span class="keyword">True</span>)</div><div class="line">loss += np.sum(-np.log(np.exp(scores[range(num_train),y]) / row_sum.T))</div><div class="line">loss = loss / num_train</div><div class="line">loss += <span class="number">0.5</span> * reg * np.sum(W ** <span class="number">2</span>)</div><div class="line">scores = np.exp(scores) / row_sum</div><div class="line">scores[range(num_train),y] -= <span class="number">1</span></div><div class="line">dW = np.dot(X.T,scores)/num_train + reg * W</div><div class="line"><span class="comment">#############################################################################</span></div><div class="line"><span class="comment">#                          END OF YOUR CODE                                 #</span></div><div class="line"><span class="comment">#############################################################################</span></div></pre></td></tr></table></figure></p>
+<hr>
+<hr>
+<h2 id="two-layer-net"><a href="#two-layer-net" class="headerlink" title="two layer net"></a>two layer net</h2><blockquote>
+<p>In this exercise we will develop a neural network with fully-connected layers to perform classification, and test it out on the CIFAR-10 dataset.</p>
+</blockquote>
+<p>forward没什么好说的<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#############################################################################</span></div><div class="line"><span class="comment"># <span class="doctag">TODO:</span> Perform the forward pass, computing the class scores for the input. #</span></div><div class="line"><span class="comment"># Store the result in the scores variable, which should be an array of      #</span></div><div class="line"><span class="comment"># shape (N, C).                                                             #</span></div><div class="line"><span class="comment">#############################################################################</span></div><div class="line">X1 = X.dot(W1) + b1</div><div class="line">X2 = np.maximum(X1,<span class="number">0</span>)</div><div class="line">scores = X2.dot(W2) + b2</div><div class="line"><span class="comment">#############################################################################</span></div><div class="line"><span class="comment">#                              END OF YOUR CODE                             #</span></div><div class="line"><span class="comment">#############################################################################</span></div></pre></td></tr></table></figure></p>
+<p>主要还是bp求梯度的部分。这里要求使用的是Softmax classification loss function。所以每层的输出及其对应的公式如下：<br>$$X_{1} = XW_{1} + b_{1} \\<br>X_{2} = max(X_{1},0) \\<br>scores = X_{2}W_{2}+b_{2}<br>$$<br>利用Softmax里推过的式子<br>$$\frac{\partial L}{\partial S_{ij}}=<br>\begin{cases}<br>\frac{1}{N}\frac{e^{S_{ij}}}{\sum_{j}{e^{S_{ij}}}}, &amp; \text{if} \ j \neq y_{i} \\<br>\frac{1}{N}\left(\frac{e^{S_{ij}}}{\sum_{j}{e^{S_{ij}}}} - 1\right), &amp; \text{if} \ j = y_{i}<br>\end{cases}$$<br>可以直接得到\(W_{2}\)，\(b_{2}\)以及\(X_{2}\)的梯度<br>$$\frac{\partial L}{\partial W_{2}} = \frac{\partial S}{\partial W_{2}}\frac{\partial L}{\partial S}<br>=X_{2}^{T}\frac{\partial L}{\partial S} \\<br>\frac{\partial L}{\partial X_{2}} = \frac{\partial L}{\partial S}\frac{\partial S}{\partial X_{2}}=\frac{\partial L}{\partial S}W_{2}^{T}\\<br>\frac{\partial L}{\partial b_{2}}=\underbrace{[1,…,1]}_{N个1}\frac{\partial L}{\partial S}<br>$$<br>利用chain rule，然后向前推,对于max函数，小的那个是0，大的偏导是1。也就是将\(\frac{\partial L}{\partial X_{2}}\)中与\(X_{1}&lt;0\)下标对应的值置为0，其余不变赋值给\(\frac{\partial L}{\partial X_{1}}\)<br>最后再对\(X_{1}\)的式子求一下导，得到<br>$$<br>\frac{\partial L}{\partial W_{1}}<br>=\frac{\partial X_{1}}{\partial W_{1}}\frac{\partial L}{\partial X_{1}}<br>=X^{T}\frac{\partial L}{\partial X1}\\<br>\frac{\partial L}{\partial b_{1}}<br>=\frac{\partial X_{1}}{\partial b_{1}}\frac{\partial L}{\partial X_{1}}<br>=\underbrace{[1,…,1]}_{N个1}\frac{\partial L}{\partial X_{1}}<br>$$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#############################################################################</span></div><div class="line"><span class="comment"># <span class="doctag">TODO:</span> Finish the forward pass, and compute the loss. This should include  #</span></div><div class="line"><span class="comment"># both the data loss and L2 regularization for W1 and W2. Store the result  #</span></div><div class="line"><span class="comment"># in the variable loss, which should be a scalar. Use the Softmax           #</span></div><div class="line"><span class="comment"># classifier loss. So that your results match ours, multiply the            #</span></div><div class="line"><span class="comment"># regularization loss by 0.5                                                #</span></div><div class="line"><span class="comment">#############################################################################</span></div><div class="line">num_train = X.shape[<span class="number">0</span>]</div><div class="line">num_class = scores.shape[<span class="number">1</span>]</div><div class="line">scores -= np.max(scores,axis=<span class="number">1</span>,keepdims=<span class="keyword">True</span>)</div><div class="line">loss = np.sum(-np.log(np.exp(scores[range(num_train),y]) / np.sum(np.exp(scores),axis=<span class="number">1</span>))) / num_train</div><div class="line">loss += <span class="number">0.5</span> * reg * (np.sum(W1 ** <span class="number">2</span>) + np.sum(W2 ** <span class="number">2</span>))</div><div class="line"><span class="comment">#############################################################################</span></div><div class="line"><span class="comment">#                              END OF YOUR CODE                             #</span></div><div class="line"><span class="comment">#############################################################################</span></div><div class="line"></div><div class="line"><span class="comment"># Backward pass: compute gradients</span></div><div class="line">grads = &#123;&#125;</div><div class="line"><span class="comment">#############################################################################</span></div><div class="line"><span class="comment"># <span class="doctag">TODO:</span> Compute the backward pass, computing the derivatives of the weights #</span></div><div class="line"><span class="comment"># and biases. Store the results in the grads dictionary. For example,       #</span></div><div class="line"><span class="comment"># grads['W1'] should store the gradient on W1, and be a matrix of same size #</span></div><div class="line"><span class="comment">#############################################################################</span></div><div class="line">dW2 = np.zeros(W2.shape)</div><div class="line">dW1 = np.zeros(W1.shape)</div><div class="line">row_tot = np.sum(np.exp(scores),axis=<span class="number">1</span>,keepdims=<span class="keyword">True</span>)</div><div class="line">dL = np.exp(scores) / row_tot</div><div class="line">dL[range(num_train),y] -= <span class="number">1</span></div><div class="line">dL /= num_train</div><div class="line">dW2 = np.dot(X2.T,dL) + reg * W2</div><div class="line">db2 = np.dot(np.ones((<span class="number">1</span>,num_train)),dL)</div><div class="line"></div><div class="line">dL_dX2 = np.dot(dL,W2.T)</div><div class="line">dL_dX1 = dL_dX2</div><div class="line">dL_dX1[X1 &lt;= <span class="number">0</span>] = <span class="number">0</span></div><div class="line">dX1_dW1 = X.T</div><div class="line">dW1 = np.dot(dX1_dW1,dL_dX1) + reg * W1</div><div class="line">db1 = np.dot(np.ones((<span class="number">1</span>,num_train)),dL_dX1)</div><div class="line"></div><div class="line">grads[<span class="string">'W1'</span>] = dW1</div><div class="line">grads[<span class="string">'W2'</span>] = dW2</div><div class="line">grads[<span class="string">'b1'</span>] = db1</div><div class="line">grads[<span class="string">'b2'</span>] = db2</div><div class="line"><span class="comment">#############################################################################</span></div><div class="line"><span class="comment">#                              END OF YOUR CODE                             #</span></div><div class="line"><span class="comment">#############################################################################</span></div></pre></td></tr></table></figure>
+<p>调参部分<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">best_net = <span class="keyword">None</span> <span class="comment"># store the best model into this</span></div><div class="line"></div><div class="line"><span class="comment">#################################################################################</span></div><div class="line"><span class="comment"># <span class="doctag">TODO:</span> Tune hyperparameters using the validation set. Store your best trained  #</span></div><div class="line"><span class="comment"># model in best_net.                                                            #</span></div><div class="line"><span class="comment">#                                                                               #</span></div><div class="line"><span class="comment"># To help debug your network, it may help to use visualizations similar to the  #</span></div><div class="line"><span class="comment"># ones we used above; these visualizations will have significant qualitative    #</span></div><div class="line"><span class="comment"># differences from the ones we saw above for the poorly tuned network.          #</span></div><div class="line"><span class="comment">#                                                                               #</span></div><div class="line"><span class="comment"># Tweaking hyperparameters by hand can be fun, but you might find it useful to  #</span></div><div class="line"><span class="comment"># write code to sweep through possible combinations of hyperparameters          #</span></div><div class="line"><span class="comment"># automatically like we did on the previous exercises.                          #</span></div><div class="line"><span class="comment">#################################################################################</span></div><div class="line">batch_size = [<span class="number">1000</span>]</div><div class="line">learning_rate = [<span class="number">1.4e-3</span>,<span class="number">1.5e-3</span>,<span class="number">1.6e-3</span>]</div><div class="line">reg = [<span class="number">1e-4</span>,<span class="number">1e-3</span>,<span class="number">1e-2</span>]</div><div class="line">hidden_size = <span class="number">300</span></div><div class="line">best_acc = <span class="number">-1</span></div><div class="line"><span class="keyword">for</span> bs <span class="keyword">in</span> batch_size:</div><div class="line">    <span class="keyword">for</span> lr <span class="keyword">in</span> learning_rate:</div><div class="line">        <span class="keyword">for</span> rg <span class="keyword">in</span> reg:</div><div class="line">            net = TwoLayerNet(input_size, hidden_size, num_classes)</div><div class="line">            stats = net.train(X_train,y_train,X_val,y_val,num_iters=<span class="number">2000</span>,batch_size=bs,learning_rate=lr,</div><div class="line">                             learning_rate_decay=<span class="number">0.95</span>,reg=rg,verbose=<span class="keyword">True</span>)</div><div class="line">            val_acc = (net.predict(X_val) == y_val).mean()</div><div class="line">            <span class="keyword">print</span> <span class="string">"bs : %f , lr  :  %f , rg : %f ==&gt; %f"</span> %(bs,lr,rg,val_acc)</div><div class="line">            <span class="keyword">if</span> val_acc &gt; best_acc:</div><div class="line">                best_net = net</div><div class="line">                best_acc = val_acc</div><div class="line"></div><div class="line"><span class="comment">#################################################################################</span></div><div class="line"><span class="comment">#                               END OF YOUR CODE                                #</span></div><div class="line"><span class="comment">#################################################################################</span></div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="features"><a href="#features" class="headerlink" title="features"></a>features</h2><p>神经网络部分的参数如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">################################################################################</span></div><div class="line"><span class="comment"># <span class="doctag">TODO:</span> Train a two-layer neural network on image features. You may want to    #</span></div><div class="line"><span class="comment"># cross-validate various parameters as in previous sections. Store your best   #</span></div><div class="line"><span class="comment"># model in the best_net variable.                                              #</span></div><div class="line"><span class="comment">################################################################################</span></div><div class="line">regularization = [<span class="number">2.5e-4</span>,<span class="number">5e-4</span>,<span class="number">7.5e-4</span>,<span class="number">1e-3</span>,<span class="number">1.25e-3</span>,<span class="number">1.5e-3</span>]</div><div class="line">learning_rate = [<span class="number">2e-1</span>,<span class="number">3e-1</span>,<span class="number">4e-1</span>]</div><div class="line">best_acc = <span class="number">-1</span></div><div class="line">params = [(x,y)<span class="keyword">for</span> x <span class="keyword">in</span> learning_rate <span class="keyword">for</span> y <span class="keyword">in</span> regularization]</div><div class="line"><span class="keyword">for</span> lr,reg <span class="keyword">in</span> params:</div><div class="line">    net = TwoLayerNet(input_dim,hidden_dim,num_classes)</div><div class="line">    net.train(X_train_feats,y_train,X_val_feats,y_val,num_iters=<span class="number">1500</span>,learning_rate=lr,reg=reg,batch_size=<span class="number">300</span>)</div><div class="line">    train_acc = np.mean(net.predict(X_train_feats) == y_train)</div><div class="line">    val_acc = np.mean(net.predict(X_val_feats) == y_val)</div><div class="line">    <span class="keyword">print</span> <span class="string">"lr : %f reg : %f ===&gt;  ta : %f  va : %f"</span> %(lr,reg,train_acc,val_acc)</div><div class="line">    <span class="keyword">if</span> val_acc &gt; best_acc:</div><div class="line">        best_acc,best_net = val_acc,net</div><div class="line"></div><div class="line"><span class="comment">################################################################################</span></div><div class="line"><span class="comment">#                              END OF YOUR CODE                                #</span></div><div class="line"><span class="comment">################################################################################</span></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      xyiyy
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="xyiyy.github.io/2017/02/27/standford-cs231n-assignment1/" title="standford-cs231n-assignment1">xyiyy.github.io/2017/02/27/standford-cs231n-assignment1/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/cs231n/" rel="tag"># cs231n</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/24/py-numpy-useful-function/" rel="next" title="numpy中的一些常用的函数">
+                <i class="fa fa-chevron-left"></i> numpy中的一些常用的函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/14/DeepLearningPapersReadingRoadmap-read/" rel="prev" title="Deep Learning Papers Reading Roadmap">
+                Deep Learning Papers Reading Roadmap <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/icon/favicon.png"
+               alt="xyiyy" />
+          <p class="site-author-name" itemprop="name">xyiyy</p>
+           
+              <p class="site-description motion-element" itemprop="description">ACM退役狗，现改行机器学习</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xyiyy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/charles.xu.3956" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook-official"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://meijun.github.io/" title="MeiJun" target="_blank">MeiJun</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#KNN"><span class="nav-number">1.</span> <span class="nav-text">KNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVM"><span class="nav-number">2.</span> <span class="nav-text">SVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Softmax"><span class="nav-number">3.</span> <span class="nav-text">Softmax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#two-layer-net"><span class="nav-number">4.</span> <span class="nav-text">two layer net</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#features"><span class="nav-number">5.</span> <span class="nav-text">features</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xyiyy</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://xyiyy.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'xyiyy.github.io/2017/02/27/standford-cs231n-assignment1/';
+          this.page.identifier = '2017/02/27/standford-cs231n-assignment1/';
+          this.page.title = 'standford-cs231n-assignment1';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://xyiyy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("TVFYDF9dp2RRN9y3IgTEOIcV-gzGzoHsz", "XgF1tsMBaj2sYiVukM2Ji4Dw");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
+</html>
