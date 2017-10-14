@@ -3,7 +3,7 @@ title: standford-cs231n-assignment1
 date: 2017-02-27 16:54:08
 tags: cs231n
 categories:
-- CNN
+- machine learning
 
 ---
 
@@ -28,9 +28,9 @@ categories:
 >
 > In this exercise you will implement these steps and understand the basic Image Classification pipeline, cross-validation, and gain proficiency in writing efficient, vectorized code.
 
-首先是knn的部分，这里用knn其实就相当于拿到一张新的待预测的图片，然后去和训练集中的所有的已有的图片去进行比较，然后差异最小的k张图片中，频次出现最高的label作为本次预测的label。  
+首先是knn的部分，这里用knn其实就相当于拿到一张新的待预测的图片，然后去和训练集中的所有的已有的图片去进行比较，然后差异最小的k张图片中，频次出现最高的label作为本次预测的label。
 
-这部分的代码也比较简单，对于计算差值的部分，就是分别写一个两重，一重循环，以及不用循环的计算loss的函数，然后另外再补充一个predict的函数。  
+这部分的代码也比较简单，对于计算差值的部分，就是分别写一个两重，一重循环，以及不用循环的计算loss的函数，然后另外再补充一个predict的函数。
 
 其中，在不用循环的那个loss函数，还是有些trick的，第一次接触到，考虑到那个式子每行每列的平方项提出，就会发现其基本的部分就是一个乘法而已
 ```python
@@ -74,9 +74,9 @@ dists = dists + np.sum(self.X_train**2,axis = 1)
 
 首先，这里svm的loss函数的定义如下：
 $$L=\underbrace{\frac{1}{N} \sum\_{i}^{N}L\_{i}}\_{data\ loss} + \underbrace{\frac{\lambda}{2} \sum\_{k} \sum\_{l}w\_{kl}^2}\_{regularization\ loss}$$
-$$ L\_{i} = \sum\_{j \neq y\_{i}} max\left(0, w\_{j}^{T}x\_{i} - w\_{y\_{i}}^{T}x\_{i}+\Delta \right) $$  
+$$ L\_{i} = \sum\_{j \neq y\_{i}} max\left(0, w\_{j}^{T}x\_{i} - w\_{y\_{i}}^{T}x\_{i}+\Delta \right) $$
 实际中我们一般将X展成了行向量的形式，所以，其实在实际的式子中
-$$L\_{i} = \sum\_{j \neq y\_{i}} max   \left(0,\sum\_{k}{x\_{ik}w\_{kj}}-\sum\_{k}{x\_{ik}w\_{ky\_{i}}+\Delta}\right)$$  
+$$L\_{i} = \sum\_{j \neq y\_{i}} max   \left(0,\sum\_{k}{x\_{ik}w\_{kj}}-\sum\_{k}{x\_{ik}w\_{ky\_{i}}+\Delta}\right)$$
 整体分析一下，对这个式子求导还是非常简单的，首先对于正则化的部分，就不提了，二次方直接求就好。对于data loss部分，对于小于0的，那部分对应的导数是0，其次，剩下部分的导数，每次都是作用在对应的整列上，为导数是\\(x\_{ik}\\)。然后最后把data loss和regularization loss两部分的导数求个和即可。最终得到如下的代码
 ```python
   #############################################################################
@@ -140,7 +140,7 @@ $$\frac{\partial L}{\partial S\_{ij}}=
 \end{cases}$$
 这个式子里的减1的判断，实现向量化还是很容易的。然后是剩下的部分
 $$\begin{align}
-\frac{\partial S}{\partial W}  
+\frac{\partial S}{\partial W}
 & = \frac{\partial tr(XW)}{\partial W} \\\\
 & = \frac{\partial tr(WX)}{\partial W} \\\\
 & = X^{T}
@@ -179,7 +179,7 @@ dW = np.dot(X.T,scores)/num_train + reg * W
 ***
 
 ## two layer net
->In this exercise we will develop a neural network with fully-connected layers to perform classification, and test it out on the CIFAR-10 dataset.  
+>In this exercise we will develop a neural network with fully-connected layers to perform classification, and test it out on the CIFAR-10 dataset.
 
 forward没什么好说的
 ```python
@@ -209,7 +209,7 @@ $$\frac{\partial L}{\partial S\_{ij}}=
 可以直接得到\\(W\_{2}\\)，\\(b\_{2}\\)以及\\(X\_{2}\\)的梯度
 $$\frac{\partial L}{\partial W\_{2}} = \frac{\partial S}{\partial W\_{2}}\frac{\partial L}{\partial S}
 =X\_{2}^{T}\frac{\partial L}{\partial S} \\\\
-\frac{\partial L}{\partial X\_{2}} = \frac{\partial L}{\partial S}\frac{\partial S}{\partial X\_{2}}=\frac{\partial L}{\partial S}W\_{2}^{T}\\\\  
+\frac{\partial L}{\partial X\_{2}} = \frac{\partial L}{\partial S}\frac{\partial S}{\partial X\_{2}}=\frac{\partial L}{\partial S}W\_{2}^{T}\\\\
 \frac{\partial L}{\partial b\_{2}}=\underbrace{[1,...,1]}\_{N个1}\frac{\partial L}{\partial S}
 $$
 利用chain rule，然后向前推,对于max函数，小的那个是0，大的偏导是1。也就是将\\(\frac{\partial L}{\partial X\_{2}}\\)中与\\(X\_{1}<0\\)下标对应的值置为0，其余不变赋值给\\(\frac{\partial L}{\partial X\_{1}}\\)
@@ -323,7 +323,7 @@ regularization = [2.5e-4,5e-4,7.5e-4,1e-3,1.25e-3,1.5e-3]
 learning_rate = [2e-1,3e-1,4e-1]
 best_acc = -1
 params = [(x,y)for x in learning_rate for y in regularization]
-for lr,reg in params:    
+for lr,reg in params:
     net = TwoLayerNet(input_dim,hidden_dim,num_classes)
     net.train(X_train_feats,y_train,X_val_feats,y_val,num_iters=1500,learning_rate=lr,reg=reg,batch_size=300)
     train_acc = np.mean(net.predict(X_train_feats) == y_train)
