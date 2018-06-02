@@ -3,7 +3,7 @@ title: standford-cs231n-assignment1
 date: 2017-02-27 16:54:08
 tags: cs231n
 categories:
-- machine learning
+- deep learning
 
 ---
 
