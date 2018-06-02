@@ -93,16 +93,24 @@
 
 
 
-<meta name="description" content="ACM退役狗，现改行机器学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="xyiyy&#39;s blog">
-<meta property="og:url" content="xyiyy.github.io/archives/2017/02/index.html">
+<meta name="description" content="NIPS2017 这篇文章是在convLSTM的基础上做了一些改进，改进的方法主要是用在帧序列的预测上的。 (偷懒，公式全是截图的)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PredRNN">
+<meta property="og:url" content="xyiyy.github.io/2018/06/02/201806/PredRNN/index.html">
 <meta property="og:site_name" content="xyiyy&#39;s blog">
-<meta property="og:description" content="ACM退役狗，现改行机器学习">
+<meta property="og:description" content="NIPS2017 这篇文章是在convLSTM的基础上做了一些改进，改进的方法主要是用在帧序列的预测上的。 (偷懒，公式全是截图的)">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="xyiyy.github.io/2018/06/02/201806/PredRNN/markdown-img-paste-20180602145931317.png">
+<meta property="og:image" content="xyiyy.github.io/2018/06/02/201806/PredRNN/markdown-img-paste-20180602150217459.png">
+<meta property="og:image" content="xyiyy.github.io/2018/06/02/201806/PredRNN/markdown-img-paste-20180602150451357.png">
+<meta property="og:image" content="xyiyy.github.io/2018/06/02/201806/PredRNN/markdown-img-paste-20180602150513525.png">
+<meta property="og:image" content="xyiyy.github.io/2018/06/02/201806/PredRNN/markdown-img-paste-20180602150728214.png">
+<meta property="og:image" content="xyiyy.github.io/2018/06/02/201806/PredRNN/markdown-img-paste-20180602150739533.png">
+<meta property="og:updated_time" content="2018-06-02T08:03:54.051Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xyiyy&#39;s blog">
-<meta name="twitter:description" content="ACM退役狗，现改行机器学习">
+<meta name="twitter:title" content="PredRNN">
+<meta name="twitter:description" content="NIPS2017 这篇文章是在convLSTM的基础上做了一些改进，改进的方法主要是用在帧序列的预测上的。 (偷懒，公式全是截图的)">
+<meta name="twitter:image" content="xyiyy.github.io/2018/06/02/201806/PredRNN/markdown-img-paste-20180602145931317.png">
 
 
 
@@ -130,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="xyiyy.github.io/archives/2017/02/"/>
+  <link rel="canonical" href="xyiyy.github.io/2018/06/02/201806/PredRNN/"/>
 
 
 
 
 
-  <title>归档 | xyiyy's blog</title>
+  <title>PredRNN | xyiyy's blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -172,7 +180,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -314,103 +322,210 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 9 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/27/standford-cs231n-assignment1/" itemprop="url">
-              
-                <span itemprop="name">standford-cs231n-assignment1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-27T16:54:08+08:00"
-              content="2017-02-27" >
-          02-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/24/py-numpy-useful-function/" itemprop="url">
-              
-                <span itemprop="name">numpy中的一些常用的函数</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-24T15:40:42+08:00"
-              content="2017-02-24" >
-          02-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="xyiyy.github.io/2018/06/02/201806/PredRNN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xyiyy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/icon/favicon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xyiyy's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PredRNN</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-02T15:28:16+08:00">
+                2018-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/deep-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">deep learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/02/201806/PredRNN/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/02/201806/PredRNN/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/06/02/201806/PredRNN/" class="leancloud_visitors" data-flag-title="PredRNN">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>NIPS2017</p>
+<p>这篇文章是在convLSTM的基础上做了一些改进，改进的方法主要是用在帧序列的预测上的。</p>
+<p>(偷懒，公式全是截图的)</p>
+<a id="more"></a>
+<p>ConvLSTM的式子其实就是把原来gate里的矩阵乘法变成了卷积操作而已。<br><img src="markdown-img-paste-20180602145931317.png" alt=""></p>
+<p>多层堆叠的形式与LSTM的形式几乎一致。<br><img src="markdown-img-paste-20180602150217459.png" alt=""></p>
+<p>然后作者认为LSTM中上一个时刻高层的特征可以对下一帧底层的特层产生影响，然后就增加了一个cell state，从上一个时刻的顶层，连到这一个时刻的底层。<br><img src="markdown-img-paste-20180602150451357.png" alt=""><br><img src="markdown-img-paste-20180602150513525.png" alt=""></p>
+<p>可以看到，上面的做法是去掉了原来时序上同一个level上的隐层的信息传递。然后我们再把这个隐层信息加上去，就可以得到最终的predRNN的结果。整体上就是把原来的一个cell state扩展成了两个cell state。然后两种cell state的传递的路径不一样。同事还有一个修改的地方就是output的gate是同时由两种cell state得到的。<br><img src="markdown-img-paste-20180602150728214.png" alt=""><br><img src="markdown-img-paste-20180602150739533.png" alt=""></p>
+<p>loss的话，用的是L1+L2。其余部分比较常规，就是对比一下各个数据集上MSE,PSNR和SSIM几个指标。</p>
+<p>Summary:<br>一个比较大的问题是，新增的M状态的路径太长，可能梯度效果不一定会很好。不过这篇文章并没有说明说明M的梯度的情况。另一个是，堆叠之后的PredRNN，M这个Cell state似乎需要每一层的dimension都要一样；不过有一点好的是在于由于把原来的算output gate里的element-wise的操作也换成了卷积，导致C和H的维度可以相对灵活。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      xyiyy
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="xyiyy.github.io/2018/06/02/201806/PredRNN/" title="PredRNN">xyiyy.github.io/2018/06/02/201806/PredRNN/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/27/standford-cs231n-assignment1/" rel="next" title="standford-cs231n-assignment1">
+                <i class="fa fa-chevron-left"></i> standford-cs231n-assignment1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -418,6 +533,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -647,11 +773,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -670,6 +794,18 @@
       <script id="dsq-count-scr" src="https://xyiyy.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'xyiyy.github.io/2018/06/02/201806/PredRNN/';
+          this.page.identifier = '2018/06/02/201806/PredRNN/';
+          this.page.title = 'PredRNN';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://xyiyy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
